@@ -41,8 +41,10 @@
 
 <!-- Пошук -->
 <input type="text" id="searchInput" onkeyup="searchSongs()" placeholder="Пошук пісень..." />
+<button onclick="clearSearch()">Очистити</button>
 
 <table id="songsTable">
+
   <tr>
     <th>Назва пісні</th>
   </tr>
@@ -50,9 +52,24 @@
   <tr onclick="showLyrics('song1')"><td>Без обмежень - Якби</td></tr>
   <tr onclick="showLyrics('song2')"><td>Скрябін - Люди як кораблі</td></tr>
   <tr onclick="showLyrics('song3')"><td>Скрябін - Спи собі сама</td></tr>
-  <tr onclick="showLyrics('song4')"><td>Пісня 4</td></tr>
+  <tr onclick="showLyrics('song4')"><td>Моя Україна
+ (Є на світі моя країна...) </td></tr>
   <tr onclick="showLyrics('song5')"><td>Пісня 5</td></tr>
   <tr onclick="showLyrics('song6')"><td>Пісня 6</td></tr>
+  <tr onclick="showLyrics('song7')"><td>Назва пісні 7</td></tr>
+<tr onclick="showLyrics('song8')"><td>Назва пісні 8</td></tr>
+<tr onclick="showLyrics('song9')"><td>Назва пісні 9</td></tr>
+<tr onclick="showLyrics('song10')"><td>Назва пісні 10</td></tr>
+<tr onclick="showLyrics('song11')"><td>Назва пісні 11</td></tr>
+<tr onclick="showLyrics('song12')"><td>Назва пісні 12</td></tr>
+<tr onclick="showLyrics('song13')"><td>Назва пісні 13</td></tr>
+<tr onclick="showLyrics('song14')"><td>Назва пісні 14</td></tr>
+<tr onclick="showLyrics('song15')"><td>Назва пісні 15</td></tr>
+<tr onclick="showLyrics('song16')"><td>Назва пісні 16</td></tr>
+<tr onclick="showLyrics('song17')"><td>Назва пісні 17</td></tr>
+<tr onclick="showLyrics('song18')"><td>Назва пісні 18</td></tr>
+<tr onclick="showLyrics('song19')"><td>Назва пісні 19</td></tr>
+<tr onclick="showLyrics('song20')"><td>Назва пісні 20</td></tr>
 </table>
 
 <div id="lyricsBox">
@@ -163,9 +180,58 @@
 А тої правди так і не взнаєш
 Боїшся її і від неї втікаєш
 І в стінах своїх ти одна засинаєш`,
-    song4: `Тут буде текст пісні 4...`,
+    song4: `Ти шляхом праведним, святим
+йшла до волі, Україно.
+Ти перед ворогом своїм
+не ставала на коліна.
+Ти до омріяних зірок
+йшла крізь терни. (2)
+Ти в душах сіяла добро,
+наче зерна. (2)
+
+Приспів:
+   Є на світі моя країна,
+   де червона цвіте калина.
+   Гори, ріки і полонина -
+   це моя Україна.
+   Є на світі моя країна,
+   найчарівніша, як перлина.
+   В моїм серці вона єдина.
+   Це моя Україна.
+
+Де б я на світі не була -
+ти зі мною, Україно.
+Ти - моя мати, що дала
+мені мову солов'їну.
+Тут я пила із джерела
+чисту воду. І до рання
+тут я п'яніла без вина
+в ніч медову від кохання.
+
+Приспів.
+
+Ти до омріяних зірок
+йшла крізь терни. (2)
+Ти в душах сіяла добро,
+наче зерна. (2)
+
+Приспів.`,
     song5: `Тут буде текст пісні 5...`,
-    song6: `Тут буде текст пісні 6...`
+    song6: `Тут буде текст пісні 6...`,
+	song7: `Тут буде текст пісні 7...`,
+song8: `Тут буде текст пісні 8...`,
+song9: `Тут буде текст пісні 9...`,
+song10: `Тут буде текст пісні 10...`,
+song11: `Тут буде текст пісні 11...`,
+song12: `Тут буде текст пісні 12...`,
+song13: `Тут буде текст пісні 13...`,
+song14: `Тут буде текст пісні 14...`,
+song15: `Тут буде текст пісні 15...`,
+song16: `Тут буде текст пісні 16...`,
+song17: `Тут буде текст пісні 17...`,
+song18: `Тут буде текст пісні 18...`,
+song19: `Тут буде текст пісні 19...`,
+song20: `Тут буде текст пісні 20...`
   };
 
   function showLyrics(songId) {
@@ -211,6 +277,12 @@
       btn.style.display = "none";
     }
   };
+</script>
+<script>
+    function clearSearch() {
+        document.getElementById('searchInput').value = '';  // Очищаємо поле пошуку
+        searchSongs();  // Викликаємо функцію пошуку, щоб відобразити всі пісні
+    }
 </script>
 
 </body>
