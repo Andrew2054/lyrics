@@ -35,6 +35,16 @@
     }
   </style>
 </head>
+
+<!-- Додай цей JavaScript перед </body> -->
+<script>
+  window.addEventListener('resize', function() {
+    if (window.innerHeight === window.outerHeight) {
+      document.body.style.paddingBottom = '50px'; // Підкоригуємо відступ, коли клавіатура закрита
+    }
+  });
+</script>
+</head>
 <body>
 
 <h2>Пісні для ефіру</h2>
