@@ -2,14 +2,15 @@
 <html lang="uk">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ефірна таблиця</title>
   <style>
-    body { font-family: Arial, sans-serif; padding: 20px; }
+    body { font-family: Arial, sans-serif; padding: 20px; margin: 0; }
     table { border-collapse: collapse; width: 100%; }
     th, td { border: 1px solid #ccc; padding: 10px; text-align: left; cursor: pointer; }
     #lyricsBox { margin-top: 30px; padding: 15px; border: 1px solid #ccc; background: #f9f9f9; white-space: pre-wrap; }
     tr:hover { background: #f0f0f0; }
-    input[type="text"] { padding: 10px; width: 100%; }
+    input[type="text"] { padding: 10px; width: 100%; box-sizing: border-box; }
     #toTopBtn {
       position: fixed;
       bottom: 20px;
@@ -24,6 +25,13 @@
     }
     #toTopBtn:hover {
       background-color: #0056b3;
+    }
+
+    /* Адаптивний дизайн для мобільних пристроїв */
+    @media (max-width: 768px) {
+      table, th, td { font-size: 14px; }
+      #lyricsBox { font-size: 16px; }
+      input[type="text"] { font-size: 14px; }
     }
   </style>
 </head>
