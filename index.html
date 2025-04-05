@@ -1,49 +1,6 @@
 <!DOCTYPE html>
 <html lang="uk">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Тексти пісень</title>
-  <style>
-    body { font-family: Arial, sans-serif; padding: 20px; margin: 0; }
-    table { border-collapse: collapse; width: 100%; }
-    th, td { border: 1px solid #ccc; padding: 10px; text-align: left; cursor: pointer; }
-    #lyricsBox { margin-top: 30px; padding: 15px; border: 1px solid #ccc; background: #f9f9f9; white-space: pre-wrap; }
-    tr:hover { background: #f0f0f0; }
-    input[type="text"] { padding: 10px; width: 100%; box-sizing: border-box; }
-    #toTopBtn {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      padding: 10px 20px;
-      background-color: #007bff;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      display: none;
-    }
-    #toTopBtn:hover {
-      background-color: #0056b3;
-    }
 
-    /* Адаптивний дизайн для мобільних пристроїв */
-    @media (max-width: 768px) {
-      table, th, td { font-size: 14px; }
-      #lyricsBox { font-size: 16px; }
-      input[type="text"] { font-size: 14px; }
-    }
-  </style>
-</head>
-
-<!-- Додай цей JavaScript перед </body> -->
-<script>
-  window.addEventListener('resize', function() {
-    if (window.innerHeight === window.outerHeight) {
-      document.body.style.paddingBottom = '50px'; // Підкоригуємо відступ, коли клавіатура закрита
-    }
-  });
-</script>
 </head>
 <body>
 
@@ -306,9 +263,6 @@ song20: `Тут буде текст пісні 20...`
         document.getElementById('searchInput').value = '';  // Очищаємо поле пошуку
         searchSongs();  // Викликаємо функцію пошуку, щоб відобразити всі пісні
     }
-</script>
-<script>
-  // твій JavaScript код тут
 </script>
 
 </body>
