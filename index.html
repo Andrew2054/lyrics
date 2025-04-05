@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>Ефірна таблиця</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #ccc; padding: 10px; text-align: left; cursor: pointer; }
+    #lyricsBox { margin-top: 30px; padding: 15px; border: 1px solid #ccc; background: #f9f9f9; white-space: pre-wrap; }
+    tr:hover { background: #f0f0f0; }
+    input[type="text"] { padding: 10px; width: 100%; }
+    #toTopBtn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      display: none;
+    }
+    #toTopBtn:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+
+<h2>Пісні для ефіру</h2>
+
+<!-- Пошук -->
+<input type="text" id="searchInput" onkeyup="searchSongs()" placeholder="Пошук пісень..." />
+
+<table id="songsTable">
+  <tr>
+    <th>Назва пісні</th>
+  </tr>
+  <!-- Тут залишено пусті пісні, де ти можеш додавати назви -->
+  <tr onclick="showLyrics('song1')"><td>Без обмежень - Якби</td></tr>
+  <tr onclick="showLyrics('song2')"><td>Скрябін - Люди як кораблі</td></tr>
+  <tr onclick="showLyrics('song3')"><td>Пісня 3</td></tr>
+  <tr onclick="showLyrics('song4')"><td>Пісня 4</td></tr>
+  <tr onclick="showLyrics('song5')"><td>Пісня 5</td></tr>
+  <tr onclick="showLyrics('song6')"><td>Пісня 6</td></tr>
+</table>
+
+<div id="lyricsBox">
+  <strong>Натисни на пісню, щоб побачити текст</strong>
+</div>
+
+<div>
+  <!-- Кнопки для зміни розміру тексту -->
+  <button onclick="changeFontSize(2)">Збільшити текст</button>
+  <button onclick="changeFontSize(-2)">Зменшити текст</button>
+</div>
+
+<!-- Кнопка на початок -->
+<button id="toTopBtn" onclick="scrollToTop()">На початок</button>
+
+<script>
+  const lyrics = {
+    song1: `Вітром якби стати мені,
+Я би щоночі співав би
+Для тебе до ранку!
+А як зійде сонце твоє,
+Я цілував би, тебе
+Цілував на світанку!
+Птахом якби стати мені,
+Я би щоразу у небо
+Злітав би до тебе,
+А повесні, як уві сні,
+Я б залишився назавжди
+З тобою без неба...
+
+Приспів:
+Ну і нехай! Ну і нехай!
+Ну і нехай я назавжди
+Без неба...
+Ну і нехай! Ну і нехай!
+Ну і нехай я назавжди
+З тобою без неба...
+
+Сонцем якби стати мені,
+Я б не заходив ніколи
+За хмари для тебе,
+Вдень і вночі, тобі світячи,
+Я би ніжно торкався
+Промінням до тебе!..
+Морем якби стати мені,
+Я колихав би тебе
+На ніжних лагідних хвилях,
+Світу красу в нім принесу, |
+Свою любов принесу         |
+На теплих приливах.        | (2)
+
+Приспів.
+
+Вітром якби...
+Птахом якби...
+Сонцем якби...
+Морем якби...`,
+    song2: `[Куплет 1]
+Я не твій брат, ти не сестра моя
+Ніколи не розказуй мені
+Хто і в чому є винен на нашій землі
+Люди як кораблі
+Кожен пливе, поки хвиля несе
+І поки глибока вода, а-а
+Глибока і темна до самого дна
+До самого-самого дна
+
+[Куплет 2]
+На глибині зустрічаються всі
+Так ніби в морі місця нема, а-а
+І труться бортами, аж стогне земля
+Від зависті, підлості й зла
+Хтось не доплив, бо йому помогли
+Набрати повні трюми води, і-і
+Постати героями тої війни
+Дуже хотіли вони
+
+[Приспів]
+А до берега тихо хвилі несуть
+Поранені душі живих кораблів
+А від берега знову в море ідуть
+Ті, хто вірив і правду знати хотів`,
+    song3: `Тут буде текст пісні 3...`,
+    song4: `Тут буде текст пісні 4...`,
+    song5: `Тут буде текст пісні 5...`,
+    song6: `Тут буде текст пісні 6...`
+  };
+
+  function showLyrics(songId) {
+    const box = document.getElementById('lyricsBox');
+    box.innerText = lyrics[songId] || 'Текст відсутній.';
+    window.scrollTo(0, document.body.scrollHeight); // Скролити до тексту
+  }
+
+  function changeFontSize(change) {
+    const box = document.getElementById('lyricsBox');
+    const currentSize = parseInt(window.getComputedStyle(box).fontSize);
+    box.style.fontSize = `${currentSize + change}px`;
+  }
+
+  function searchSongs() {
+    const input = document.getElementById('searchInput');
+    const filter = input.value.toLowerCase();
+    const table = document.getElementById('songsTable');
+    const rows = table.getElementsByTagName('tr');
+    for (let i = 1; i < rows.length; i++) {
+      const cell = rows[i].getElementsByTagName('td')[0];
+      if (cell) {
+        const text = cell.textContent || cell.innerText;
+        if (text.toLowerCase().indexOf(filter) > -1) {
+          rows[i].style.display = '';
+        } else {
+          rows[i].style.display = 'none';
+        }
+      }
+    }
+  }
+
+  function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  // Показати кнопку на початок, коли користувач прокручує вниз
+  window.onscroll = function() {
+    const btn = document.getElementById("toTopBtn");
+    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+      btn.style.display = "block";
+    } else {
+      btn.style.display = "none";
+    }
+  };
+</script>
+
+</body>
+</html>
