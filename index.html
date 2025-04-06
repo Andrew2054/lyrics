@@ -321,7 +321,7 @@ song20: `Тут буде текст пісні 20...`
   function showLyrics(songId) {
     const box = document.getElementById('lyricsBox');
     box.innerText = lyrics[songId] || 'Текст відсутній.';
-    window.scrollTo(0, document.body.scrollHeight); // Скролити до тексту
+    box.scrollIntoView({ behavior: 'smooth', block: 'start' }); // Прокручувати до початку тексту пісні
   }
 
   function changeFontSize(change) {
