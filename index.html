@@ -380,6 +380,7 @@ song20: `Тут буде текст пісні 20...`
 
   function scrollToTop() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
+	document.getElementById('lyricsBox').innerText = ''; // Очищуємо текст
   }
 
   // Показати кнопку на початок, коли користувач прокручує вниз
